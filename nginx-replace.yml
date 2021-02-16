@@ -12,6 +12,6 @@
     - name: Ensure string "Welcome to nginx" is changed
       lineinfile:
         path: /usr/share/nginx/html/index.html
-        regexp: "Welcome to nginx"
+        regexp: "^<h1>Welcome to nginx!</h1>"
         line: <script> document.write(new Date().toLocaleDateString()); </script>
 ---

@@ -1,0 +1,17 @@
+---
+- name: install nginx
+  hosts: first
+  become: yes
+
+  tasks:
+    - name: Ensure nginx package is present
+      apt:
+        name: nginx
+        state: present
+
+    - name: Ensure string "Welcome to nginx" is changed
+      lineinfile:
+        path: /usr/share/nginx/html/index.html
+        regexp: "Welcome to nginx"
+        line: <script> document.write(new Date().toLocaleDateString()); </script>
+---
